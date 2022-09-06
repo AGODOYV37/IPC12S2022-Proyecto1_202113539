@@ -108,8 +108,37 @@ public class DisplayFrames {
         JFrame frame1 = new HistorialFrame();
         ImageIcon icon = new ImageIcon("icono.png");
         frame1.setVisible(true);
-        frame1.setSize(900, 300);
+        frame1.setSize(1200, 300);
         frame1.setTitle("Historial de transacciones");
+        frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame1.setResizable(false);
+        frame1.setIconImage(icon.getImage());
+
+
+    }
+
+    public void PantallaInicio() {
+
+        JFrame frame1 = new MainFrame();
+        ImageIcon icon = new ImageIcon("icono.png");
+        frame1.setVisible(true);
+        frame1.setSize(800, 600);
+        frame1.setTitle("Home");
+        frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame1.setResizable(false);
+        frame1.setIconImage(icon.getImage());
+
+
+    }
+
+
+    public void PantallaLogin() {
+
+        JFrame frame1 = new LoginFrame();
+        ImageIcon icon = new ImageIcon("icono.png");
+        frame1.setVisible(true);
+        frame1.setSize(800, 600);
+        frame1.setTitle("Login");
         frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame1.setResizable(false);
         frame1.setIconImage(icon.getImage());

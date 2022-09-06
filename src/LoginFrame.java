@@ -4,7 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class LoginFrame extends JFrame{
-    Frames frameIn = new Frames();
+    DisplayFrames d = new DisplayFrames();
     public JPanel loginPanel;
     private JPanel nLoginPanel;
     private JLabel encabezadoLogin;
@@ -14,6 +14,8 @@ public class LoginFrame extends JFrame{
     private JButton ingresarBtn;
     private JButton regresarBtn;
 
+    boolean mostrar = true;
+
     public void setRegresarBtn(JButton regresarBtn) {
         this.setFocusable(false);
     }
@@ -21,8 +23,7 @@ public class LoginFrame extends JFrame{
         this.setFocusable(false);
     }
 
-    public LoginFrame (String title){
-        super(title);
+    public LoginFrame (){
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(loginPanel);
         ingresarBtn.setFocusable(false);
@@ -35,8 +36,7 @@ public class LoginFrame extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 if(textUsuario.getText().equals("administrador") && textPassWord.getText().equals("202113539")){
-                    //LoginExitoso
-                    frameIn.PantallaCharacter();
+                    d.PantallaCharacter(mostrar);
                     dispose();
                 }
                 else{
@@ -53,7 +53,7 @@ public class LoginFrame extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 textUsuario.setText(null);
                 textPassWord.setText(null);
-                frameIn.PantallaInicio();
+                d.PantallaInicio();
                 dispose();
 
             }

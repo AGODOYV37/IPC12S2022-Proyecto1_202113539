@@ -26,6 +26,8 @@ public class VerClientesFrame extends JFrame {
         buscarCuentasBtn.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.black));
         volverBtn.setFocusable(false);
         volverBtn.setBorder(BorderFactory.createMatteBorder(2,2,2,2, Color.black));
+        textCUI.setHorizontalAlignment(JTextField.CENTER);
+
 
 
             String[]f1 = {Main.cliente1.CUI,Main.cliente1.Nombre,Main.cliente1.Apellido};
@@ -48,21 +50,16 @@ public class VerClientesFrame extends JFrame {
 
         tablaClientes.setModel(modelo);
 
-        DefaultTableModel modelo1 = new DefaultTableModel();
-        String[]cf1 = {"00000"};
-        String[]cf2 = {"00000"};
-        String[]cf3 = {"00000"};
-        String[]cf4 = {"00000"};
-        String[]cf5 = {"00000"};
 
-        modelo1.addColumn("Cuentas asociadas");
-        modelo1.addRow(cf1);
-        modelo1.addRow(cf2);
-        modelo1.addRow(cf3);
-        modelo1.addRow(cf4);
-        modelo1.addRow(cf5);
 
-        tablaCuentasAsociadas.setModel(modelo1);
+
+
+        tablaCuentasAsociadas.setModel(Main.modeloVerClientes);
+        Main.modeloVerClientes.setValueAt("----",0,0);
+        Main.modeloVerClientes.setValueAt("----",1,0);
+        Main.modeloVerClientes.setValueAt("----",2,0);
+        Main.modeloVerClientes.setValueAt("----",3,0);
+        Main.modeloVerClientes.setValueAt("----",4,0);
 
 
         volverBtn.addActionListener(new ActionListener() {
@@ -75,50 +72,64 @@ public class VerClientesFrame extends JFrame {
         buscarCuentasBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               if(Main.cliente1.CUI.equals(textCUI.getText())){
-                    modelo1.setValueAt(""+Main.C1.ID1,0,0);
-                    modelo1.setValueAt(""+Main.C1.ID2,1,0);
-                    modelo1.setValueAt(""+Main.C1.ID3,2,0);
-                    modelo1.setValueAt(""+Main.C1.ID4,3,0);
-                    modelo1.setValueAt(""+Main.C1.ID5,4,0);
+              if(textCUI.getText()==null){
+                  JOptionPane.showMessageDialog(null, "Debe ingresar un CUI para buscar sus cuentas asociadas.", "Error", JOptionPane.ERROR_MESSAGE);
+              }else {
 
-                }
+                  if(textCUI.getText().equals(Main.cliente1.getCUI())){
 
-                if(Main.cliente2.CUI.equals(textCUI.getText())){
-                    modelo1.setValueAt(""+Main.C2.ID1,0,0);
-                    modelo1.setValueAt(""+Main.C2.ID2,1,0);
-                    modelo1.setValueAt(""+Main.C2.ID3,2,0);
-                    modelo1.setValueAt(""+Main.C2.ID4,3,0);
-                    modelo1.setValueAt(""+Main.C2.ID5,4,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[0].ID,0,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[1].ID,1,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[2].ID,2,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[3].ID,3,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[4].ID,4,0);
 
-                }
 
-                if(Main.cliente3.CUI.equals(textCUI.getText())){
-                    modelo1.setValueAt(""+Main.C3.ID1,0,0);
-                    modelo1.setValueAt(""+Main.C3.ID2,1,0);
-                    modelo1.setValueAt(""+Main.C3.ID3,2,0);
-                    modelo1.setValueAt(""+Main.C3.ID4,3,0);
-                    modelo1.setValueAt(""+Main.C3.ID5,4,0);
+                  }
+                  if(textCUI.getText().equals(Main.cliente2.getCUI())){
 
-                }
 
-                if(Main.cliente4.CUI.equals(textCUI.getText())){
-                    modelo1.setValueAt(""+Main.C4.ID1,0,0);
-                    modelo1.setValueAt(""+Main.C4.ID2,1,0);
-                    modelo1.setValueAt(""+Main.C4.ID3,2,0);
-                    modelo1.setValueAt(""+Main.C4.ID4,3,0);
-                    modelo1.setValueAt(""+Main.C4.ID5,4,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[5].ID,0,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[6].ID,1,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[7].ID,2,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[8].ID,3,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[9].ID,4,0);
 
-                }
+                  }
+                  if(textCUI.getText().equals(Main.cliente3.getCUI())){
 
-                if(Main.cliente5.CUI.equals(textCUI.getText())){
-                    modelo1.setValueAt(""+Main.C5.ID1,0,0);
-                    modelo1.setValueAt(""+Main.C5.ID2,1,0);
-                    modelo1.setValueAt(""+Main.C5.ID3,2,0);
-                    modelo1.setValueAt(""+Main.C5.ID4,3,0);
-                    modelo1.setValueAt(""+Main.C5.ID5,4,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[10].ID,0,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[11].ID,1,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[12].ID,2,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[13].ID,3,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[14].ID,4,0);
 
-                }
+                  }
+                  if(textCUI.getText().equals(Main.cliente4.getCUI())){
+
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[15].ID,0,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[16].ID,1,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[17].ID,2,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[18].ID,3,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[19].ID,4,0);
+
+
+                  }
+                  if(textCUI.getText().equals(Main.cliente5.getCUI())){
+
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[20].ID,0,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[21].ID,1,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[22].ID,2,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[23].ID,3,0);
+                      Main.modeloVerClientes.setValueAt(Main.arrayCuentas[24].ID,4,0);
+
+                  }
+
+
+
+
+              }
+
 
                 }
 

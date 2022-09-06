@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 
 public class MainFrame extends JFrame{
 
-    Frames frameIn = new Frames();
+    DisplayFrames d = new DisplayFrames();
     public JPanel homePanel;
     public JLabel encabezadoH;
     public JPanel homeL;
@@ -26,8 +26,7 @@ public class MainFrame extends JFrame{
         this.setFocusable(false);
     }
 
-    public MainFrame (String title){
-    super(title);
+    public MainFrame (){
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     this.setContentPane(homePanel);
     aboutBtn.setFocusable(false);
@@ -45,7 +44,7 @@ public class MainFrame extends JFrame{
         loginBtn.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                frameIn.PantallaLogin();
+                d.PantallaLogin();
                 dispose();
             }
         });

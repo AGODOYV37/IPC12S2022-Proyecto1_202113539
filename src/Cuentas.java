@@ -1,69 +1,61 @@
-public class Cuentas{
-    Clientes cliente;
+import java.util.Random;
 
-    double SaldoID1;
-    double SaldoID2;
-    double SaldoID3;
-    double SaldoID4;
-    double SaldoID5;
-     int ID1;
-     int ID2;
-     int ID3;
-     int ID4;
-     int ID5;
+public class Cuentas {
+    public Clientes cliente;
+
+    public double Saldo;
+
+    public String ID;
+
+
+    Random random = new Random();
+
 
     public Cuentas(Clientes cliente) {
         this.cliente = cliente;
     }
-    public  Cuentas(){
+
+    public Cuentas() {
 
     }
 
+    public String GenerarID() {
+        boolean cuentaRepetida = true;
+        String IdCuenta;
+        do {
 
-    public void TransferenciaDeFondos(Cuentas cuentaOrigen, Cuentas cuentaDestino, double montoTr,int IdOrigen,int IdDestino){
+            int d1 = random.nextInt(10);
+            int d2 = random.nextInt(10);
+            int d3 = random.nextInt(10);
+            int d4 = random.nextInt(10);
+            int d5 = random.nextInt(10);
+            int d6 = random.nextInt(10);
+            int cuentasR = 0;
+            IdCuenta = String.valueOf(d1) + String.valueOf(d2) + String.valueOf(d3) + String.valueOf(d4) + String.valueOf(d5) + String.valueOf(d6);
+            for (int i = 0; i < Main.arrayCuentas.length; i++) {
+                if (IdCuenta.equals(Main.arrayCuentas[i])) {
+                    cuentasR++;
+                }
+            }
+            if (cuentasR == 0) {
+                cuentaRepetida = false;
+            }
 
-        switch (IdOrigen){
-            case(1):
-                cuentaOrigen.SaldoID1=cuentaOrigen.SaldoID1-montoTr;
-                break;
-            case(2):
-                cuentaOrigen.SaldoID2=cuentaOrigen.SaldoID2-montoTr;
-                break;
-            case (3):
-                cuentaOrigen.SaldoID3=cuentaOrigen.SaldoID3-montoTr;
-            case (4):
-                cuentaOrigen.SaldoID4=cuentaOrigen.SaldoID4-montoTr;
-                break;
-            case (5):
-                cuentaOrigen.SaldoID5=cuentaOrigen.SaldoID5-montoTr;
-                break;
+        } while (cuentaRepetida);
 
-        }
-
-        switch (IdDestino){
-            case(1):
-                cuentaDestino.SaldoID1= cuentaDestino.SaldoID1+montoTr;
-                break;
-            case (2):
-                cuentaDestino.SaldoID2= cuentaDestino.SaldoID2+montoTr;
-                break;
-            case (3):
-                cuentaDestino.SaldoID3= cuentaDestino.SaldoID3+montoTr;
-                break;
-            case (4):
-                cuentaDestino.SaldoID4= cuentaDestino.SaldoID4+montoTr;
-                break;
-            case (5):
-                cuentaDestino.SaldoID5= cuentaDestino.SaldoID5+montoTr;
-                break;
-
-        }
-
-
-
-
-
+     return IdCuenta;
     }
+
+
+
+
+
+
+
+
+
+
+
 
 }
 
